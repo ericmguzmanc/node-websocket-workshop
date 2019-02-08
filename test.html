@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    var ws = new WebSocket('ws://localhost:40510');
+
+    // event emited when connected
+    ws.onopen = function () {
+      console.log('websocket is connected...')
+
+      // sending a send event to websocket server
+      ws.send('connected');
+    }
+
+    // event emmited when receiving message
+    ws.onmessage = function (ev) {
+      console.log('Server sent', ev.data);
+    }
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
